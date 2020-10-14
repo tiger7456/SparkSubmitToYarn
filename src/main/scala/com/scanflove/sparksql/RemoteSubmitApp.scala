@@ -32,7 +32,7 @@ object RemoteSubmitApp {
                 // 设置序列化
 //      .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
                 // 设置jar包的路径,如果有其他的依赖包,可以在这里添加,逗号隔开
-//                .setJars(List("D:\\IdeaProjects\\SparkSubmitToYarn\\target\\SparkSubmitToYarn-1.0.jar"))
+                .setJars(List("D:\\IdeaProjects\\SparkSubmitToYarn\\target\\SparkSubmitToYarn-1.0.jar"))
 //        val scc = new StreamingContext(conf, Seconds(30))
 //
 //        scc.sparkContext.setLogLevel("WARN")

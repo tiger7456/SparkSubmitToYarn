@@ -19,8 +19,10 @@ object LocalApp {
         spark.sql("use sparkpractice")
         spark.sql("show tables").show()
         spark.sql("select * from city_info").show()
+//        Thread.sleep(1000000)
         //释放资源
         spark.stop()
+
     }
 
 
