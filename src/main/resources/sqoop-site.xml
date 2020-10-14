@@ -1,0 +1,8 @@
+  <configuration  xmlns:xi="http://www.w3.org/2001/XInclude">
+    
+    <property>
+      <name>sqoop.job.data.publish.class</name>
+      <value>org.apache.atlas.sqoop.hook.SqoopHook</value>
+    </property>
+    
+  </configuration>
