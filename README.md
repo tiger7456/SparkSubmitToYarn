@@ -1,0 +1,2 @@
+# SparkSubmitToYarn
+测试idea spark本地模式跑任务和本地提交到yarn运行
