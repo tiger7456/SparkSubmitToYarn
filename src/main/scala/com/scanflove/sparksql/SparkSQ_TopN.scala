@@ -13,6 +13,7 @@ import org.apache.spark.sql.types._
  */
 object SparkSQ_TopN {
     def main(args: Array[String]): Unit = {
+        //hdp 需要设置HDP_VERSION=3.1.1.3.1.4.0-315 版本环境变量
         //创建配置文件对象
         val conf: SparkConf = new SparkConf().setMaster("yarn-client").setAppName("SparkSQ_TopN")
                 .setJars(List("D:\\IdeaProjects\\SparkSubmitToYarn\\target\\SparkSubmitToYarn-1.0.jar"))
