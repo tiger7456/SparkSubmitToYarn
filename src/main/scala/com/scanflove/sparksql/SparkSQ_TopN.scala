@@ -1,7 +1,7 @@
 package com.scanflove.sparksql
 
 import java.text.DecimalFormat
-import org.apache.spark.SparkConf
+import org.apache.spark.{SparkConf, SparkEnv}
 import org.apache.spark.sql.{Row, SparkSession}
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
 import org.apache.spark.sql.types._
@@ -16,8 +16,8 @@ object SparkSQ_TopN {
         //hdp 需要设置HDP_VERSION=3.1.1.3.1.4.0-315 版本环境变量
         //创建配置文件对象
         val conf: SparkConf = new SparkConf().setMaster("yarn-client").setAppName("SparkSQ_TopN")
+//        val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("SparkSQ_TopN")
                 .setJars(List("D:\\IdeaProjects\\SparkSubmitToYarn\\target\\SparkSubmitToYarn-1.0.jar"))
-        conf
         //创建SparkSession对象
         val spark: SparkSession = SparkSession.builder()
                 .config("mapred.input.dir.recursive", "true")
@@ -84,8 +84,15 @@ object SparkSQ_TopN {
               |    t3
               |where t3.cn <= 3
       """.stripMargin).show(false)
+
+        println(SparkEnv.get.executorId)
+        //Spark程序中如何判断当前处在Driver还是Executor?
+        if(SparkEnv.get.executorId == "driver"){
+            Thread.sleep(1000000)
+        }
         //释放资源
         spark.stop()
+
     }
 }
 
